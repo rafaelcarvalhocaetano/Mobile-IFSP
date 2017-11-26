@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="livrariarfl.com.br.lojadelivros.MainActivity">
+
+    <CheckBox
+        android:id="@+id/java"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="128dp"
+        android:background="@android:color/background_light"
+        android:text="Java"
+        app:layout_constraintBottom_toTopOf="@+id/angular"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <CheckBox
+        android:id="@+id/angular"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="128dp"
+        android:background="@android:color/background_light"
+        android:text="Angular"
+        app:layout_constraintBottom_toTopOf="@+id/react"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <CheckBox
+        android:id="@+id/react"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="128dp"
+        android:background="@android:color/background_light"
+        android:text="React"
+        app:layout_constraintBottom_toTopOf="@+id/spring"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <CheckBox
+        android:id="@+id/spring"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="48dp"
+        android:layout_marginStart="128dp"
+        android:background="@android:color/background_light"
+        android:text="SpringBoot"
+        app:layout_constraintBottom_toTopOf="@+id/btn"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:text="Verificar"
+        android:theme="@style/Animation.AppCompat.Dialog"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_editor_absoluteY="317dp" />
+
+    <TextView
+        android:id="@+id/info"
+        android:layout_width="0dp"
+        android:layout_height="24dp"
+        android:text="ESCOLHA SEU LIVRO"
+        android:textAlignment="center"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_editor_absoluteY="42dp" />
+
+</android.support.constraint.ConstraintLayout>
