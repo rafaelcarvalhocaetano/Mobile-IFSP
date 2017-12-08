@@ -35,8 +35,6 @@ public class PessoaFisica extends Activity implements OnClickListener{
     //Espesifica uma variável para o banco de dados SQLite
     private SQLiteDatabase db;
 
-
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -91,6 +89,7 @@ public class PessoaFisica extends Activity implements OnClickListener{
         // os campos preenchidos e salvará no nosso banco de dados
         if(view == btnAdd){
             if(verificandoCampos()){
+                //mensagem que aparecerá ao usuário
                 mensagem.show("AVISO", "Valores Obrigatórios");
                 return;
             }
@@ -102,11 +101,15 @@ public class PessoaFisica extends Activity implements OnClickListener{
         //verificando o botão de pesquisar todos os registros da tabela aluno
         if(view == btnListaAll){
             Cursor c = db.rawQuery("SELECT * FROM usuario", null);
+            //verificando se o cursor for igual a 0 não buscará nada
             if(c.getCount() == 0){
+                //mensagem que aparecerá ao usuário
                 mensagem.show("AVISO", "Nenhum Registro encontrado ... ");
                 return;
             }
+            //Classe do tipo string que armazena muitos caracteres
             StringBuilder info = new StringBuilder();
+            //loop que verifica se conseguiu buscar algum registros
             while (c.moveToNext()){
                 info.append("NOME: "+c.getString(0)+"\n");
                 info.append("CPF: "+c.getString(1)+"\n");
@@ -119,11 +122,64 @@ public class PessoaFisica extends Activity implements OnClickListener{
         }
         //verificando ação do botão que busca as informações através do cpf do usuário
         if(view == btnListID){
+            //verificando se existe informação no campo cpf para buscar
             if(cpf.trim().length() == 0){
-                mensagem.show("AVISO", "CPF: "+cpf+" não localizado ou não existente ");
+                mensagem.show("AVISO", "CPF: "+cpf+" não localizado ");
                 return;
             }
-            
+            //cursor que buscará o usuário com base em seu CPF
+            Cursor c = db.rawQuery("SELECT * FROM usuario WHERE cpf='" +cpf+ "'", null);
+            //se conseguiu buscar algum registro ele atribuirá aos campos as informações buscadas com referencia nas colunas
+            if(c.moveToFirst()){
+                editNome.setText(c.getString(0));
+                editIdade.setText(c.getString(2));
+                editTelefone.setText(c.getString(3));
+                editEmail.setText(c.getString(4));
+            }else{
+                mensagem.show("ERRO", "CPF: "+cpf+" não localizado.");
+                return;
+            }
+        }
+        //verificando ação do botão update
+        if(view == btnUpdate){
+            //verificando se existe informação no campo cpf para buscar
+            if(cpf.trim().length() == 0){
+                mensagem.show("AVISO", "CPF: "+cpf+" não localizado ");
+                return;
+            }
+            //cursor que buscará o usuário com base em seu CPF
+            Cursor c = db.rawQuery("SELECT * FROM usuario WHERE cpf='" +cpf+ "'", null);
+            //se conseguiu buscar irá fazer uma atualização nas no registro
+            if(c.moveToFirst()){
+                db.execSQL("UPDATE usuario SET nome='" +nome+ "', idade='" +idade+ "', " +
+                        "telefone='" +telefone+ "', email='" +email+ "' WHERE cpf='" +cpf+ "'; ");
+                mensagem.show("AVISO", "CPF: "+cpf+" Atualizado ");
+            }else {
+                mensagem.show("ERRO", "CPF: "+cpf+" não localizado.");
+                return;
+            }
+            //limpa os campos
+            limpandoCampos();
+        }
+        //botão excluir
+        if(view == btnDeletar){
+            //verificando se existe informação no campo cpf para buscar
+            if(cpf.trim().length() == 0){
+                mensagem.show("AVISO", "CPF: "+cpf+" não localizado ");
+                return;
+            }
+            //buscando usuario com base no CPF
+            Cursor c = db.rawQuery("SELECT * FROM usuario WHERE cpf='" +cpf+ "'", null);
+            //se conseguiu buscar ele irá deletar com base no CPF
+            if(c.moveToFirst()){
+                db.execSQL("DELETE FROM usuario WHERE cpf='" +cpf+ "';");
+                mensagem.show("DELETADO", "Usuário: "+nome+" excluído com sucesso");
+            }else{
+                mensagem.show("AVISO", "CPF: "+cpf+" não localizado ");
+                return;
+            }
+            //limpando campos
+            limpandoCampos();
         }
     }
     //método responsável por verificar os campos tirando os espaços com a função trim
@@ -136,7 +192,6 @@ public class PessoaFisica extends Activity implements OnClickListener{
                 || email.trim().length() == 0
         );
     }
-
     //limpa os campos EDITTEXT e atribui o cursor para o campo nome com o requestFocus()
     public void limpandoCampos(){
         editNome.setText("");
@@ -146,6 +201,4 @@ public class PessoaFisica extends Activity implements OnClickListener{
         editEmail.setText("");
         editNome.requestFocus();
     }
-
-
 }

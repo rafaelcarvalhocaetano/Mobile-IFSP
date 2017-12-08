@@ -177,7 +177,7 @@
                     android:layout_marginEnd="5dp"
                     android:layout_weight="1"
                     android:background="@android:color/background_light"
-                    android:text="LISTA ID" />
+                    android:text="LIST CPF" />
 
                 <Button
                     android:id="@+id/btnVoltar"
