@@ -43,9 +43,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@android:color/background_light"
+                android:drawableTint="@android:color/background_light"
                 android:ems="10"
+                android:fadingEdge="none"
                 android:inputType="textPersonName"
-                android:textColor="@android:color/background_light" />
+                android:textColor="@android:color/background_light"
+                android:textColorHint="@android:color/background_light"
+                android:textCursorDrawable="@android:color/background_light" />
 
             <TextView
                 android:id="@+id/textView12"
@@ -125,26 +129,27 @@
 
                 <Button
                     android:id="@+id/btnSalvar"
-                    android:layout_width="wrap_content"
+                    android:layout_width="90dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginEnd="5dp"
                     android:layout_weight="1"
                     android:background="@android:color/background_light"
                     android:text="ADD" />
 
                 <Button
                     android:id="@+id/btnExcluir"
-                    android:layout_width="wrap_content"
+                    android:layout_width="90dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
+                    android:layout_marginEnd="5dp"
                     android:layout_weight="1"
                     android:background="@android:color/background_light"
                     android:text="DELETAR" />
 
                 <Button
                     android:id="@+id/btnAtualizar"
-                    android:layout_width="wrap_content"
+                    android:layout_width="90dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginEnd="5dp"
                     android:layout_weight="1"
                     android:background="@android:color/background_light"
                     android:text="UPDATE" />
@@ -158,26 +163,27 @@
 
                 <Button
                     android:id="@+id/btnListaAll"
-                    android:layout_width="wrap_content"
+                    android:layout_width="90dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginEnd="5dp"
                     android:layout_weight="1"
                     android:background="@android:color/background_light"
                     android:text="LIST ALL" />
 
                 <Button
                     android:id="@+id/btnListID"
-                    android:layout_width="wrap_content"
+                    android:layout_width="90dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
+                    android:layout_marginEnd="5dp"
                     android:layout_weight="1"
                     android:background="@android:color/background_light"
                     android:text="LISTA ID" />
 
                 <Button
                     android:id="@+id/btnVoltar"
-                    android:layout_width="wrap_content"
+                    android:layout_width="90dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginEnd="5dp"
                     android:layout_weight="1"
                     android:background="@android:color/background_light"
                     android:text="VOLTAR" />
