@@ -1,6 +1,11 @@
+//******************************************************
+//Instituto Federal de São Paulo - Campus Sertãozinho
+//Disciplina......: M4DADM
+//Programação de Computadores e Dispositivos Móveis
+//Aluno...........: Rafael Carvalho Caetano
+//******************************************************
 package projetofinal.com.br.projetofinal;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
