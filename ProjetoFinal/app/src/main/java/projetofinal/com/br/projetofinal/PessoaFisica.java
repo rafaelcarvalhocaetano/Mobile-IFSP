@@ -123,7 +123,7 @@ public class PessoaFisica extends Activity implements OnClickListener{
                 info.append("IDADE: "+c.getString(2)+"\n");
                 info.append("TELEFONE: "+c.getString(3)+"\n");
                 info.append("E-mail: "+c.getString(4)+"\n");
-                info.append("\n************************************\n\n");
+                info.append("\n**********************\n\n");
             }
             mensagem.show("Usuários", info.toString());
         }
